@@ -1,2 +1,9 @@
-# wordpress-dev-server
-A Docker based dev server for WordPress projects
+# A Docker based WordPress Development Server
+
+This is a Docker based dev server for WordPress projects. The installation script will download the latest version of
+WordPress and then build a docker container for Apache running WordPress and another container running MySQL 5.7.
+
+Once the setup is complete you will be able to access the dev server at http://localhost:8080
+
+The MySQL data is stored in the `mysql_data` sub folder and WordPress in the `wordpress` sub folder.
+

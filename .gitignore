@@ -25,3 +25,7 @@ node_modules/
 
 # ignore PhpStorm configuration
 .idea
+
+# two folders
+mysql_data
+wordpress
