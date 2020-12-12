@@ -7,3 +7,4 @@ Once the setup is complete you will be able to access the dev server at http://l
 
 The MySQL data is stored in the `mysql_data` sub folder and WordPress in the `wordpress` sub folder.
 
+Make sure you have Docker installed on your computer ([Docker Installation Instructions](https://docs.docker.com/engine/install/)) and then run the `install.sh` script. 
