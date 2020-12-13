@@ -1,10 +1,24 @@
 #!/bin/bash
 
+# workaround for mac that does not come with realpath
+realpath2() {
+  OURPWD=$PWD
+  cd "$(dirname "$1")"
+  LINK=$(readlink "$(basename "$1")")
+  while [ "$LINK" ]; do
+    cd "$(dirname "$LINK")"
+    LINK=$(readlink "$(basename "$1")")
+  done
+  REALPATH="$PWD/$(basename "$1")"
+  cd "$OURPWD"
+  echo "$REALPATH"
+}
+
 # check if running on Linux
 unameOut="$(uname -s)"
 if [ "${unameOut}" == "Linux" ]; then
   # running under Linux ... change the permissions
-  main_dir="$(dirname $(dirname $(realpath $0)))"
+  main_dir="$(dirname $(dirname $(realpath "$0")))"
   cd "$main_dir" || exit
 
   printf "\nSetting file permissions for the wordpress and mysql_data folder. You may have to enter your password below.\n\n"
