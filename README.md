@@ -13,8 +13,8 @@ To stop the development server run: `./bin/stop`
 To restart the development server run: `./bin/start`
 
 Place the themes you are developing into the `themes` folder, and the plugins you are developing into the `plugins` 
-folder. After adding new plugins or themes run `./bin/update_themes_and_plugins.sh` so the symlinks get update (symlinks 
-get also automatically updated when running `./bin/start`).
+folder. After adding new plugins or themes run `./bin/update_themes_and_plugins.sh` so the symlinks get updated 
+(symlinks get also automatically updated when running `./bin/start`).
 
 FYI: The MySQL data is stored in the `server_data/mysql_data` sub folder and WordPress in the `server_data/wordpress` 
 folder. There is no need to work directly with those two folders. 
