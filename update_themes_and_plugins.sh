@@ -1,9 +1,6 @@
 #!/bin/bash
 
-echo ""
-echo "Updating symlinks for themes and plugins ..."
-echo ""
+printf "\nUpdating symlinks for themes and plugins ...\n"
 
-find ./themes/ -maxdepth 1 -mindepth 1 -type d -exec ln -s '{}' ./wordpress/wp-content/themes/ \;
-find ./plugins/ -maxdepth 1 -mindepth 1 -type d -exec ln -s '{}' ./wordpress/wp-content/plugins/ \;
-
+find themes plugins -maxdepth 1 -mindepth 1 -type d -exec ln -sfn '/var/www/html/{}' ./wordpress/wp-content/themes/ \;
+find "plugins" -maxdepth 1 -mindepth 1 -type d -exec ln -sfn '/var/www/html/{}' ./wordpress/wp-content/plugins/ \;

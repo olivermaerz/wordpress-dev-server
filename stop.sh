@@ -1,6 +1,4 @@
 #!/bin/bash
 
-echo "Stopping the MySQL and WordPress containers ... "
-echo ""
+printf "\nStopping the MySQL and WordPress containers ... \n"
 docker-compose stop
-echo ""
