@@ -25,8 +25,8 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./php.ini:/usr/local/etc/php/php.ini
-      - ./themes:/var/www/html/themes
-      - ./plugins:/var/www/html/plugins
+      - ../themes:/var/www/html/themes
+      - ../plugins:/var/www/html/plugins
     environment:
       VIRTUAL_HOST: localhost
       WORDPRESS_DB_HOST: mysql:3306
