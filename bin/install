@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# workaround for mac that does not come with realpath
 realpath2() {
   OURPWD=$PWD
   cd "$(dirname "$1")"
@@ -13,7 +14,7 @@ realpath2() {
   echo "$REALPATH"
 }
 
-main_dir="$(dirname $(dirname $(realpath2 "$@" $0)) )"
+main_dir="$(dirname $(dirname $(realpath2 "$0")) )"
 cd "$main_dir" || exit
 
 # Download and untar WordPress
@@ -22,11 +23,11 @@ printf "\nDownloading latest version of WordPress ...\n"
 curl -O https://wordpress.org/latest.tar.gz
 tar -xzf latest.tar.gz -C server_files/
 rm latest.tar.gz
-chmod +x bin/*.sh
+chmod +x bin/*
 
-./bin/start.sh
+./bin/start
 
 printf "\nSetup complete. You can now navigate to http://localhost:8080/ in your browser.\n"
-printf "\nTo stop the development server run './stop.sh' in this directory.\n"
-printf "\nTo start the development server in the future run './start.sh'.\n"
+printf "\nTo stop the development server run './bin/stop' in this directory.\n"
+printf "\nTo start the development server in the future run './bin/start'.\n"
 
