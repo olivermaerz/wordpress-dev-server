@@ -25,6 +25,9 @@ if [ "${unameOut}" == "Linux" ]; then
   sudo find server_files/wordpress server_files/mysql_data \( -type d -execdir chmod 2777 '{}' \; \) , \( -type f -execdir chmod 666 '{}' \; \)
   sudo chown 33:33 -R server_files/wordpress
   sudo chown 999:999 -R server_files/mysql_data
+  # fix themes and plugins folder
+  sudo find themes plugins \( -type d -execdir chmod 777 '{}' \; \) , \( -type f -execdir chmod 666 '{}' \; \)
+
 else
   # not running under Linux - do not do anything
   printf "\nSkip setting the file permissions, because not running under Linux.\n\n"
