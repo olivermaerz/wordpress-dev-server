@@ -19,3 +19,6 @@ cd "$main_dir" || exit
 
 printf "\nStopping the MySQL and WordPress containers ... \n\n"
 docker-compose -f server_files/docker-compose.yml stop
+
+# Change the permission of the WordPress folder
+./bin/fix_permissions_linux
