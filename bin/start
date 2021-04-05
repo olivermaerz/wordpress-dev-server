@@ -19,11 +19,12 @@ cd "$main_dir" || exit
 
 printf "\nStarting MySQL and WordPress docker containers ...\n\n"
 
-# Update symlinks for plugin and theme folders
-./bin/update_themes_and_plugins
-
 # Download the docker images and then start the containers
 docker-compose -f server_files/docker-compose.yml up -d
 
 # Change the permission of the WordPress folder
 ./bin/fix_permissions_linux
+
+# Update symlinks for plugin and theme folders
+./bin/update_themes_and_plugins
+
